@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next-prosjekt",
-  description: "Prosjektutgangspunkt for Next-apper",
+  title: "Zhizhovski Bygg",
+  description: "Velkommen til Zhizhovski Bygg sitt nettsted. Vi tilbyr tjenester innen bygg og anlegg, og vi er dedikert til å levere kvalitetsarbeid til våre kunder.",
 };
 
 export default function RootLayout({
