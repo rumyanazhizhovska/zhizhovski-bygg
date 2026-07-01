@@ -8,13 +8,6 @@
   min-height: 100vh;
 }
 
-.footer {
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #F8FAFC;
-}
 /* Group: button styles, all typography styles, and all layout styles */
 
 

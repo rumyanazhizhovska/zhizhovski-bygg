@@ -21,13 +21,7 @@ export default function Home() {
             Du kan endre koden i <code className={styles.code}>src/App.jsx</code>
           </p>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <p>
-          Bygget med ❤️
-        </p>
-      </footer>      
+      </main>     
     </div>
   );
 }
