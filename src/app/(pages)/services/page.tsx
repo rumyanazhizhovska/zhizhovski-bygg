@@ -1,10 +1,10 @@
-import styles from "../page.module.css";
+import styles from "../../page.module.css";
 
-export default function Contact() {
+export default function Services() {
     return (
         <main className={styles.main}>
             <div className={styles.container}>
-                <h1>Kontakt</h1>
+                <h1>Tjenester</h1>
                 <p>
                     Mer info kommer snart!
                 </p>

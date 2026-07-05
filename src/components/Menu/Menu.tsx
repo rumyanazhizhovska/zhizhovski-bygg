@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import styles from "./Menu.module.css";
 import { Menu as MenuIcon } from "lucide-react";
 
@@ -16,19 +17,19 @@ function Menu() {
             {userBoxIsOpen && (
                 <ul className={styles.ul}>
                     <li className={styles.li}>
-                        <a href="/">Hjem</a>
+                        <Link href="/">Hjem</Link>
                     </li>
                     <li className={styles.li}>
-                        <a href="/about-us/page">Om oss</a>
+                        <Link href="/about-us">Om oss</Link>
                     </li>
                     <li className={styles.li}>
-                        <a href="/contact/page">Kontakt</a>
+                        <Link href="/contact">Kontakt</Link>
                     </li>
                     <li className={styles.li}>
-                        <a href="/services/page">Tjenester</a>
+                        <Link href="/services">Tjenester</Link>
                     </li>
                     <li className={styles.li}>
-                        <a href="/projects/page">Prosjekter</a>
+                        <Link href="/projects">Prosjekter</Link>
                     </li>
                 </ul>
             )}
