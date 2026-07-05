@@ -1,5 +1,4 @@
 .menu-icon {
-  cursor: pointer;
   transition: opacity 0.2s ease;
 }
 
@@ -7,11 +6,37 @@
   opacity: 0.4;
 }
 
+.button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.wrapper {
+  position: relative;
+}
+
 .box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: auto;
-  border-radius: 50%;
-  background-color: #F8FAFC;
+  position: absolute;
+  top: calc(100% + 1rem);
+  right: 0;
+  z-index: 100;
+  padding: 1rem 1.5rem;
+  background-color: rgba(248, 250, 252, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.li {
+  padding: 0.5rem 0;
+  white-space: nowrap;
 }
