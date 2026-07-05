@@ -1,0 +1,17 @@
+.menu-icon {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.menu-icon:hover {
+  opacity: 0.4;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: auto;
+  border-radius: 50%;
+  background-color: #F8FAFC;
+}

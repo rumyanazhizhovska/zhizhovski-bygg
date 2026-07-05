@@ -8,11 +8,8 @@
   background-color: #F8FAFC;
 }
 
-.menu {
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-.menu:hover {
-  opacity: 0.5;
+.img {
+  max-width: 25%;
+  height: auto;
+  display: block;
 }
