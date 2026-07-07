@@ -42,20 +42,30 @@ function Menu() {
             {userBoxIsOpen && (
                 <div className={styles.box}>
                     <ul className={styles.ul}>
-                        <li className={styles.li} onClick={() => setBoxIsOpen(false)}>
-                            <Link href="/">Hjem</Link>
+                        <li className={styles.li}>
+                            <Link href="/" onClick={() => setBoxIsOpen(false)}>
+                                Hjem
+                            </Link>
                         </li>
-                        <li className={styles.li} onClick={() => setBoxIsOpen(false)}>
-                            <Link href="/about-us">Om oss</Link>
+                        <li className={styles.li}>
+                            <Link href="/about-us" onClick={() => setBoxIsOpen(false)}>
+                                Om oss
+                            </Link>
                         </li>
-                        <li className={styles.li} onClick={() => setBoxIsOpen(false)}>
-                            <Link href="/contact">Kontakt</Link>
+                        <li className={styles.li}>
+                            <Link href="/contact" onClick={() => setBoxIsOpen(false)}>
+                                Kontakt
+                            </Link>
                         </li>
-                        <li className={styles.li} onClick={() => setBoxIsOpen(false)}>
-                            <Link href="/services">Tjenester</Link>
+                        <li className={styles.li}>
+                            <Link href="/services" onClick={() => setBoxIsOpen(false)}>
+                                Tjenester
+                            </Link>
                         </li>
-                        <li className={styles.li} onClick={() => setBoxIsOpen(false)}>
-                            <Link href="/projects">Prosjekter</Link>
+                        <li className={styles.li}>
+                            <Link href="/projects" onClick={() => setBoxIsOpen(false)}>
+                                Prosjekter
+                            </Link>
                         </li>
                     </ul>
                 </div>
