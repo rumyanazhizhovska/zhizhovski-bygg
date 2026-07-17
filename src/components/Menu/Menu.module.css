@@ -1,47 +1,116 @@
-.menu-icon {
-  transition: opacity 0.2s ease;
-}
-
-.menu-icon:hover {
-  opacity: 0.4;
-}
-
-.button {
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-}
-
 .wrapper {
   position: relative;
+  flex: 1;
+  max-width: 75rem;
 }
 
 .box {
-  position: absolute;
-  top: calc(100% + 1rem);
-  right: 0;
-  z-index: 100;
-  padding: 1rem 1.5rem;
-  background-color: rgba(248, 250, 252, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 7rem);
+}
+
+.button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  color: #080817;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-icon {
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .ul {
-  list-style-type: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2.25rem, 4vw, 4rem);
   margin: 0;
   padding: 0;
-}
-
-.li {
-  padding: 0.5rem 0;
-  white-space: nowrap;
+  list-style: none;
 }
 
 .li a {
   display: block;
+  padding: 1rem 0;
+  color: #080817;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.li a:hover {
+  opacity: 0.6;
+}
+
+.contact {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.9rem;
+  color: #fff;
+  background: #060615;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
   white-space: nowrap;
+}
+
+.contact:hover {
+  background: #28283a;
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    position: relative;
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .button {
+    display: flex;
+  }
+
+  .box {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    width: min(18rem, calc(100vw - 2rem));
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #f8f8f9;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  }
+
+  .box.open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ul {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .li a {
+    padding: 0.75rem;
+  }
+
+  .contact {
+    margin: 0.5rem 0 0;
+    padding: 0.85rem 1rem;
+    text-align: center;
+  }
 }

@@ -35,41 +35,35 @@ function Menu() {
 
     return (
         <div className={styles.wrapper} ref={wrapperRef}>
-            <button className={styles.button} onClick={() => setBoxIsOpen((current) => !current)}>
+            <button
+                type="button"
+                className={styles.button}
+                aria-label="Åpne navigasjonsmeny"
+                aria-expanded={userBoxIsOpen}
+                onClick={() => setBoxIsOpen((current) => !current)}
+            >
                 <MenuIcon className={styles["menu-icon"]} />
             </button>
 
-            {userBoxIsOpen && (
-                <div className={styles.box}>
-                    <ul className={styles.ul}>
-                        <li className={styles.li}>
-                            <Link href="/" onClick={() => setBoxIsOpen(false)}>
-                                Hjem
-                            </Link>
-                        </li>
-                        <li className={styles.li}>
-                            <Link href="/about-us" onClick={() => setBoxIsOpen(false)}>
-                                Om oss
-                            </Link>
-                        </li>
-                        <li className={styles.li}>
-                            <Link href="/contact" onClick={() => setBoxIsOpen(false)}>
-                                Kontakt
-                            </Link>
-                        </li>
-                        <li className={styles.li}>
-                            <Link href="/services" onClick={() => setBoxIsOpen(false)}>
-                                Tjenester
-                            </Link>
-                        </li>
-                        <li className={styles.li}>
-                            <Link href="/projects" onClick={() => setBoxIsOpen(false)}>
-                                Prosjekter
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            )}
+            <nav className={`${styles.box} ${userBoxIsOpen ? styles.open : ""}`} aria-label="Hovedmeny">
+                <ul className={styles.ul}>
+                    <li className={styles.li}>
+                        <Link href="/" onClick={() => setBoxIsOpen(false)}>Hjem</Link>
+                    </li>
+                    <li className={styles.li}>
+                        <Link href="/services" onClick={() => setBoxIsOpen(false)}>Tjenester</Link>
+                    </li>
+                    <li className={styles.li}>
+                        <Link href="/projects" onClick={() => setBoxIsOpen(false)}>Prosjekter</Link>
+                    </li>
+                    <li className={styles.li}>
+                        <Link href="/about-us" onClick={() => setBoxIsOpen(false)}>Om oss</Link>
+                    </li>
+                </ul>
+                <Link className={styles.contact} href="/contact" onClick={() => setBoxIsOpen(false)}>
+                    Kontakt oss
+                </Link>
+            </nav>
         </div>
     );
 }
