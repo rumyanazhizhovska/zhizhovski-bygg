@@ -5,7 +5,9 @@ function Header() {
 
     return (    
         <header className={styles.header}>
-            <h1><img className={styles.img} src="/logo-bc-transparent.svg" alt="..."  /></h1>
+            <h1 className={styles.logo}>
+                <img className={styles.img} src="/logo-bc-transparent.svg" alt="Zhizhovski Bygg" />
+            </h1>
             <Menu/>
         </header>
 
