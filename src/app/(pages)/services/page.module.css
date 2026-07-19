@@ -1,0 +1,12 @@
+.page {
+  width: min(100% - 4rem, 1600px);
+  margin-inline: auto;
+  padding-block: 8rem;
+}
+
+@media (max-width: 900px) {
+  .page {
+    width: min(100% - 2rem, 760px);
+    padding-top: 4.5rem;
+  }
+}

@@ -1,0 +1,145 @@
+.sidebar {
+  position: sticky;
+  top: 7rem;
+
+  align-self: start;
+
+  max-height: calc(100vh - 9rem);
+  overflow-y: auto;
+
+  border-left: 1px solid #dce3e7;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.listItem {
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  padding: 1rem 2rem;
+
+  color: #a9b8c1;
+  text-decoration: none;
+
+  transition:
+    color 160ms ease,
+    opacity 160ms ease;
+}
+
+/*
+ * Den vertikale aktive streken.
+ */
+.link::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -2px;
+
+  width: 4px;
+
+  background-color: transparent;
+
+  transition: background-color 160ms ease;
+}
+
+.title {
+  font-size: clamp(1.2rem, 1.5vw, 1.75rem);
+  font-weight: 550;
+  font-stretch: condensed;
+  line-height: 1.2;
+}
+
+.description {
+  max-width: 18rem;
+
+  font-size: clamp(1rem, 1.1vw, 1.25rem);
+  line-height: 1.65;
+}
+
+
+.active {
+  color: #629E74;
+}
+
+.active::before {
+  background-color: #629E74;
+}
+
+.active .description {
+  color: #6f8798;
+}
+
+.link:hover {
+  color: #629E74;
+}
+
+.link:focus-visible {
+  outline: 3px solid #8db2ca;
+  outline-offset: -3px;
+}
+
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: sticky;
+    z-index: 20;
+    top: 4.5rem;
+
+    max-height: none;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    background-color: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #dce3e7;
+    border-left: 0;
+
+    backdrop-filter: blur(12px);
+  }
+
+  .list {
+    flex-direction: row;
+    width: max-content;
+  }
+
+  .link {
+    width: max-content;
+    padding: 1rem 1.25rem;
+  }
+
+  .link::before {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: auto;
+    height: 3px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .description {
+    display: none;
+  }
+}
