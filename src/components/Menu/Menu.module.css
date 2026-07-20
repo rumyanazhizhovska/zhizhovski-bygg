@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: clamp(3rem, 6vw, 7rem);
+  gap: 0.5rem;
 }
 
 .button {
@@ -35,7 +35,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(2.25rem, 3.5vw, 4rem);
+  gap: 0.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -45,12 +45,18 @@
   display: block;
   padding: 0.25rem 0;
   color: #080817;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 450;
 }
 
 .li a:hover {
-  opacity: 0.6;
+  opacity: 0.7;
+}
+
+.li a.active {
+  color: #080817;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .contact {
@@ -59,8 +65,8 @@
   border-radius: 0.9rem;
   color: #fff;
   background: #060615;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.90rem;
+  font-weight: 600;
   transition: background-color 0.2s ease;
   white-space: nowrap;
 }

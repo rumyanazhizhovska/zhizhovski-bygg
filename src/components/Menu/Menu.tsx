@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import styles from "./Menu.module.css";
 import { Menu as MenuIcon } from "lucide-react";
 
 function Menu() {
+    const pathname = usePathname();
     const [userBoxIsOpen, setBoxIsOpen] = useState(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -48,16 +50,28 @@ function Menu() {
             <nav className={`${styles.box} ${userBoxIsOpen ? styles.open : ""}`} aria-label="Hovedmeny">
                 <ul className={styles.ul}>
                     <li className={styles.li}>
-                        <Link href="/" onClick={() => setBoxIsOpen(false)}>Hjem</Link>
+                        <Link href="/" className={pathname === "/" ? styles.active : ""} 
+                        onClick={() => setBoxIsOpen(false)}>
+                            Hjem
+                        </Link>
                     </li>
                     <li className={styles.li}>
-                        <Link href="/services" onClick={() => setBoxIsOpen(false)}>Tjenester</Link>
+                        <Link href="/services" className={pathname === "/services" ? styles.active : ""} 
+                            onClick={() => setBoxIsOpen(false)}>
+                            Tjenester
+                        </Link>
                     </li>
                     <li className={styles.li}>
-                        <Link href="/projects" onClick={() => setBoxIsOpen(false)}>Prosjekter</Link>
+                        <Link href="/projects" className={pathname === "/projects" ? styles.active : ""} 
+                            onClick={() => setBoxIsOpen(false)}>
+                            Prosjekter
+                        </Link>
                     </li>
                     <li className={styles.li}>
-                        <Link href="/about-us" onClick={() => setBoxIsOpen(false)}>Om oss</Link>
+                        <Link href="/about-us" className={pathname === "/about-us" ? styles.active : ""} 
+                            onClick={() => setBoxIsOpen(false)}>
+                            Om oss
+                        </Link>
                     </li>
                 </ul>
                 <Link className={styles.contact} href="/contact" onClick={() => setBoxIsOpen(false)}>

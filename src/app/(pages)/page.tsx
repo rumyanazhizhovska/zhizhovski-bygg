@@ -15,7 +15,6 @@ export default function Home() {
         <p className={styles.p}>
           Er du nysgjerrig på hva våre kunder synes om oss? Klikk på knappen nedenfor for å lese våre <GoogleReviewsLink />.
         </p>
-        <Sections /> 
       </div>
     </main>
   );
