@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 
   verification: {
     google: "1ZNr5tlIQ9sLHmUvQGLKoQR7ke7AsxjdtjS7mtSTook"
+  }
 };
 
 export default function RootLayout({
