@@ -29,12 +29,19 @@
   list-style: none;
 }
 
+.li {
+  display: flex;
+  align-items: center;
+}
+
 .li a {
-  display: block;
+  display: inline-flex;
+  align-items: center;
   padding: 0.25rem 0;
   color: #080817;
   font-size: 0.9rem;
   font-weight: 450;
+  white-space: nowrap;
 }
 
 .li a:hover {
@@ -43,24 +50,9 @@
 
 .li a.active {
   color: #080817;
-  font-size: 1rem;
   font-weight: 600;
-}
-
-.contact {
-  display: block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.9rem;
-  color: #fff;
-  background: #060615;
-  font-size: 0.90rem;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
-  white-space: nowrap;
-}
-
-.contact:hover {
-  background: #28283a;
+  transform: scale(1.05);
+  transform-origin: center;
 }
 
 @media (max-width: 800px) {
@@ -99,11 +91,5 @@
 
   .li a {
     padding: 0.75rem;
-  }
-
-  .contact {
-    margin:0;
-    padding: 0.85rem 1rem;
-    text-align: center;
   }
 }
