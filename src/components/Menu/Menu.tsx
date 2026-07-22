@@ -1,10 +1,12 @@
 "use client";
 
+import styles from "./Menu.module.css";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import router from "next/router";
 import Link from "next/link";
-import styles from "./Menu.module.css";
 import { Menu as MenuIcon } from "lucide-react";
+import Button from "../Button/Button";
 
 function Menu() {
     const pathname = usePathname();
@@ -37,15 +39,14 @@ function Menu() {
 
     return (
         <div className={styles.wrapper} ref={wrapperRef}>
-            <button
-                type="button"
-                className={styles.button}
+            <Button
                 aria-label="Åpne navigasjonsmeny"
                 aria-expanded={userBoxIsOpen}
                 onClick={() => setBoxIsOpen((current) => !current)}
+                buttonStyle="menu-button"
             >
                 <MenuIcon className={styles["menu-icon"]} />
-            </button>
+            </Button>
 
             <nav className={`${styles.box} ${userBoxIsOpen ? styles.open : ""}`} aria-label="Hovedmeny">
                 <ul className={styles.ul}>
@@ -74,9 +75,15 @@ function Menu() {
                         </Link>
                     </li>
                 </ul>
-                <Link className={styles.contact} href="/contact" onClick={() => setBoxIsOpen(false)}>
+                <Button
+                    buttonStyle="primary"
+                    href="/contact"
+                    onClick={() => {
+                        setBoxIsOpen(false);
+                    }}
+                >
                     Kontakt oss
-                </Link>
+                </Button>
             </nav>
         </div>
     );
