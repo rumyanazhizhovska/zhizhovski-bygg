@@ -8,7 +8,7 @@ export default function Home() {
       <div className={styles.container}>
         <h1>VELKOMMEN</h1>
         <p>
-          Den offisielle nettsiden til Zhizhovski Bygg AS. Vi er et lite firma som tilbyr profilerte tjenester innen bygg og anlegg.
+          Den offisielle nettsiden til Zhizhovski Bygg. Vi er et lite firma som tilbyr profilerte tjenester innen bygg og anlegg.
           Vår visjon er å levere kvalitetsarbeid til våre kunder.
           
         </p>

@@ -1,12 +1,44 @@
 "use client";
 
 import { useForm, ValidationError } from "@formspree/react";
+import { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import { Upload as UploadIcon } from "lucide-react";
 import styles from "./ContactForm.module.css";
 
 export default function ContactForm() {
     const [state, handleSubmit] = useForm("xnjebygl");
+    const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+    const [filePreviewUrls, setFilePreviewUrls] = useState<string[]>([]);
+    const [activeFile, setActiveFile] = useState<File | null>(null);
+    const [activePreviewUrl, setActivePreviewUrl] = useState<string | null>(null);
+    const [viewedFiles, setViewedFiles] = useState<string[]>([]);
+    const hasSubmissionError = !state.submitting && !state.succeeded && Boolean(state.errors);
+
+    const getFileId = (file: File) => `${file.name}-${file.size}-${file.lastModified}`;
+
+    useEffect(() => {
+        const urls = selectedFiles.map((file) => URL.createObjectURL(file));
+        setFilePreviewUrls(urls);
+
+        return () => {
+            urls.forEach((url) => URL.revokeObjectURL(url));
+        };
+    }, [selectedFiles]);
+
+    useEffect(() => {
+        if (!activeFile) {
+            setActivePreviewUrl(null);
+            return;
+        }
+
+        const url = URL.createObjectURL(activeFile);
+        setActivePreviewUrl(url);
+
+        return () => {
+            URL.revokeObjectURL(url);
+        };
+    }, [activeFile]);
 
     if (state.succeeded) {
         return (
@@ -91,8 +123,12 @@ export default function ContactForm() {
                     id="images"
                     name="images"
                     accept="image/*"
-                    capture="environment"
                     multiple
+                    onChange={(event) => {
+                        const newFiles = Array.from(event.currentTarget.files ?? []);
+                        setSelectedFiles((currentFiles) => [...currentFiles, ...newFiles]);
+                        event.currentTarget.value = "";
+                    }}
                 />
                 <label
                     htmlFor="images"
@@ -101,13 +137,64 @@ export default function ContactForm() {
                     Velg bilder
                     <UploadIcon size={18} aria-hidden="true" />
                 </label>
-                <p className={styles.helperText}>Valgfritt. Du kan legge ved ett eller flere bilder av oppdraget.</p>
+                {selectedFiles.length === 0 ? (
+                    <p className={styles.helperText}>Valgfritt. Du kan legge ved ett eller flere bilder av oppdraget.</p>
+                ) : null}
+                {selectedFiles.length > 0 ? (
+                    <div className={styles.fileSummary}>
+                        <p className={styles.fileSummaryTitle}>
+                            {selectedFiles.length === 1 ? "1 bilde valgt" : `${selectedFiles.length} bilder valgt`}
+                        </p>
+                        <ul className={styles.fileList}>
+                            {selectedFiles.map((file, index) => (
+                                <li key={`${file.name}-${index}`} className={styles.fileItem}>
+                                    <button
+                                        type="button"
+                                        className={`${styles.fileLink} ${viewedFiles.includes(getFileId(file)) ? styles.fileLinkViewed : ""}`}
+                                        onClick={() => {
+                                            setActiveFile(file);
+                                            setViewedFiles((currentFiles) =>
+                                                currentFiles.includes(getFileId(file)) ? currentFiles : [...currentFiles, getFileId(file)]
+                                            );
+                                        }}
+                                    >
+                                        {filePreviewUrls[index] ? (
+                                            <img className={styles.fileThumbnail} src={filePreviewUrls[index]} alt="" aria-hidden="true" />
+                                        ) : null}
+                                        {file.name}
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ) : null}
             </div>
             <div className={styles.actions}>
                 <Button type="submit" buttonStyle="primary" className={styles.submitButton} disabled={state.submitting}>
                     {state.submitting ? "Sender..." : "Få gratis befaring"}
                 </Button>
+                <p className={styles.statusText} aria-live="polite">
+                    {state.submitting
+                        ? "Skjemaet sendes nå."
+                        : state.succeeded
+                            ? "Skjemaet ble sendt. Vi tar kontakt så snart som mulig."
+                            : hasSubmissionError
+                                ? "Skjemaet ble ikke sendt. Sjekk feltene og prøv igjen."
+                                : ""}
+                </p>
             </div>
+
+            {activePreviewUrl ? (
+                <div className={styles.previewOverlay} role="dialog" aria-modal="true" aria-label="Bildforhåndsvisning" onClick={() => setActiveFile(null)}>
+                    <div className={styles.previewDialog} onClick={(event) => event.stopPropagation()}>
+                        <button type="button" className={styles.previewClose} onClick={() => setActiveFile(null)}>
+                            Lukk
+                        </button>
+                        <img className={styles.previewModalImage} src={activePreviewUrl} alt={activeFile?.name ?? "Valgt bilde"} />
+                        <p className={styles.previewCaption}>{activeFile?.name}</p>
+                    </div>
+                </div>
+            ) : null}
         </form>
     );
 }
