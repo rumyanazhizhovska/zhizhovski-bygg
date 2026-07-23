@@ -9,13 +9,13 @@
 
 /* variants */
 
-/* black white text */
+/* dark blue white text */
 .primary {
     display: block;
     padding: 0.75rem 1.5rem;
     border-radius: 0.9rem;
     color: #fff;
-    background: #060615;
+    background: #294b65;
     font-size: 0.90rem;
     font-weight: 600;
     transition: background-color 0.2s ease;
@@ -27,13 +27,14 @@
     background-color: #28283a;
 }
 
-/* white black text */
+/* white dark blue text */
 .secondary {
     display: block;
     padding: 0.75rem 1.5rem;
     border-radius: 0.9rem;
-    color: #060615;
+    color: #294b65;
     background: #fff;
+    border: 1px solid #294b65;
     font-size: 0.90rem;
     font-weight: 600;
     transition: background-color 0.2s ease;

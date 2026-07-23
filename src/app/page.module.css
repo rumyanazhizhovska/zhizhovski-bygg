@@ -8,6 +8,31 @@
   min-height: 100vh;
 }
 
+.container {
+  width: min(100%, 56rem);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.header {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 40rem;
+}
+
+.header h2 {
+  color: #294b65;
+  font-size: clamp(1.6rem, 3.75vw, 3rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.header p {
+  color: #00966E;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
 /* Group: button styles, all typography styles, and all layout styles */
 .p {
   margin: 0 0 04rem;

@@ -76,11 +76,11 @@
 
 
 .active {
-  color: #629E74;
+  color: #00966E;
 }
 
 .active::before {
-  background-color: #629E74;
+  background-color: #00966E;
 }
 
 .active .description {
@@ -88,7 +88,7 @@
 }
 
 .link:hover {
-  color: #629E74;
+  color: #00966E;
 }
 
 .link:focus-visible {

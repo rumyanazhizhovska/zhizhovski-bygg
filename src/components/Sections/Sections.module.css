@@ -23,7 +23,7 @@
 .sectionTitle {
   margin: 0 0 1.5rem;
 
-  color: #629E74;
+  color: #00966E;
 
   font-size: clamp(2.25rem, 4vw, 3.75rem);
   font-weight: 650;
@@ -35,7 +35,7 @@
   max-width: 55rem;
   margin: 0 0 1.5rem;
 
-  color: #629E74;
+  color: #00966E;
 
   font-size: clamp(1.05rem, 1.5vw, 1.35rem);
   line-height: 1.75;
@@ -82,7 +82,7 @@
 .projectText {
   margin: 0 0 1.5rem;
 
-  color: #629E74;
+  color: #00966E;
 
   font-size: 1rem;
   line-height: 1.8;
@@ -100,7 +100,7 @@
   font-stretch: condensed;
   text-decoration: none;
 
-  background-color: #629E74;
+  background-color: #00966E;
   border-radius: 0.3rem;
 
   transition:

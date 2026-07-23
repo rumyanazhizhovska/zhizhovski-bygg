@@ -8,8 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "lucide-react": "^1.22.0",
-    "next": "14.2.7",
+    "next": "^14.2.35",
     "react": "^18",
     "react-dom": "^18"
   },
