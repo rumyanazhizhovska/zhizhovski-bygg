@@ -3,7 +3,7 @@
 import { useForm, ValidationError } from "@formspree/react";
 import { useEffect, useState } from "react";
 import Button from "../Button/Button";
-import { Upload as UploadIcon } from "lucide-react";
+import { Upload as UploadIcon, X as XIcon } from "lucide-react";
 import styles from "./ContactForm.module.css";
 
 export default function ContactForm() {
@@ -162,6 +162,23 @@ export default function ContactForm() {
                                             <img className={styles.fileThumbnail} src={filePreviewUrls[index]} alt="" aria-hidden="true" />
                                         ) : null}
                                         {file.name}
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={styles.fileRemove}
+                                        aria-label={`Fjern ${file.name}`}
+                                        title={`Fjern ${file.name}`}
+                                        onClick={() => {
+                                            if (activeFile === file) {
+                                                setActiveFile(null);
+                                            }
+
+                                            setSelectedFiles((currentFiles) =>
+                                                currentFiles.filter((_, fileIndex) => fileIndex !== index)
+                                            );
+                                        }}
+                                    >
+                                        <XIcon size={16} aria-hidden="true" />
                                     </button>
                                 </li>
                             ))}

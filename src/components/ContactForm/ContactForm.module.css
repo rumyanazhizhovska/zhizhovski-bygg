@@ -120,16 +120,21 @@
   list-style: none;
   gap: 0.35rem;
   margin: 0;
-  padding-left: 1.1rem;
+  padding-left: 0.35rem;
 }
 
 .fileItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   line-height: 1.45;
 }
 
 .fileLink {
   display: inline-flex;
   align-items: center;
+  min-width: 0;
   gap: 0.6rem;
   padding: 0;
   border: 0;
@@ -140,6 +145,33 @@
   cursor: pointer;
 }
 
+.fileRemove {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #294b65;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.fileRemove:hover {
+  background: rgba(163, 48, 48, 0.1);
+  color: #a33030;
+}
+
+.fileRemove:focus-visible {
+  outline: 2px solid #294b65;
+  outline-offset: 2px;
+}
+
 .fileLink:hover {
   text-decoration: underline;
   text-underline-offset: 0.18em;
@@ -148,6 +180,8 @@
 .fileLinkViewed {
   color: #4388bd;
   font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 .fileThumbnail {
