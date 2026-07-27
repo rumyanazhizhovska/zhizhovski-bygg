@@ -11,7 +11,7 @@
 
 /* dark blue white text */
 .primary {
-    display: block;
+    display: inline-flex;
     padding: 0.75rem 1.5rem;
     border-radius: 0.9rem;
     color: #fff;
@@ -29,7 +29,7 @@
 
 /* white dark blue text */
 .secondary {
-    display: block;
+    display: inline-flex;
     padding: 0.75rem 1.5rem;
     border-radius: 0.9rem;
     color: #294b65;

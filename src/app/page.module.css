@@ -34,11 +34,12 @@
 }
 
 /* Group: button styles, all typography styles, and all layout styles */
-.p {
-  margin: 0 0 04rem;
-
+.p{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
 }
-
 
 /* Components */
 .card {

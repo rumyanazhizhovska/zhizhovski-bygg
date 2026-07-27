@@ -3,7 +3,11 @@
 import Link from "next/link";
 import styles from "./Button.module.css";
 import { ButtonProps } from "./types";
+import { PAGES as pages } from "../../constants/pages";
 
+const isInternalLink = (href: string) => {
+    return pages.some((page) => href.includes(page));
+};
 export default function Button({
     type = "button",
     children,
@@ -17,10 +21,17 @@ export default function Button({
         .join(" ");
 
     if (href) {
+        if (isInternalLink(href)) {
+            return (
+                <Link href={href} className={classes} {...rest}>
+                    {children}
+                </Link>
+            );
+        }
         return (
-            <Link href={href} className={classes} {...rest}>
+            <a href={href} className={classes} {...rest}>
                 {children}
-            </Link>
+            </a>
         );
     }
 

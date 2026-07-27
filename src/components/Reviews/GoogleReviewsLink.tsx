@@ -1,14 +1,16 @@
+import Button from "../Button/Button";
 
 
 const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/3TyprhBD9jJN1NDb8";
 export default function GoogleReviewsLink() {
       return (
-    <a
+    <Button
       href={GOOGLE_MAPS_URL}
       target="_blank"
       rel="noopener noreferrer"
+      buttonStyle="secondary"
     >
       Google-anmeldelser
-    </a>
+    </Button>
   );
 }

@@ -1,14 +1,14 @@
 import type { MetadataRoute } from "next";
+import { PAGES as pages } from "../constants/pages";
 
 const baseUrl = "https://zhizhovski-bygg.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const routes = ["", "/about-us", "/contact", "/projects", "/services"];
 
-    return routes.map((route) => ({
-        url: `${baseUrl}${route}`,
+    return pages.map((page) => ({
+        url: `${baseUrl}${page}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
-        priority: route === "" ? 1 : 0.8,
+        priority: page === "" ? 1 : 0.8,
     }));
 }
