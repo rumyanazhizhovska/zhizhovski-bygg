@@ -1,6 +1,5 @@
 import styles from "../page.module.css";
 import GoogleReviewsLink from "@/components/Reviews/GoogleReviewsLink";
-import Sections from "@/components/Sections/Sections";
 
 export default function Home() {
   return (
