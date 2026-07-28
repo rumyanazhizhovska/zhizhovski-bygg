@@ -18,12 +18,23 @@ const organizationSchema = {
 };
 
 export const metadata: Metadata = {
-  title: "Zhizhovski Bygg",
-  description: "Velkommen til Zhizhovski Bygg sitt nettsted. Vi tilbyr tjenester innen bygg og anlegg, og vi er dedikert til å levere kvalitetsarbeid til våre kunder.",
-
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "Zhizhovski Bygg",
+    template: "%s | Zhizhovski Bygg",
+  },
+  description:
+    "Zhizhovski Bygg tilbyr snekkerarbeid, montering, håndverkertjenester og malerarbeid med fokus på kvalitet.",
+  openGraph: {
+    type: "website",
+    locale: "nb_NO",
+    siteName: "Zhizhovski Bygg",
+    title: "Zhizhovski Bygg",
+    description: "Profesjonelt håndverk innen snekring, montering og maling.",
+  },
   verification: {
-    google: "1ZNr5tlIQ9sLHmUvQGLKoQR7ke7AsxjdtjS7mtSTook"
-  }
+    google: "1ZNr5tlIQ9sLHmUvQGLKoQR7ke7AsxjdtjS7mtSTook",
+  },
 };
 
 export default function RootLayout({
@@ -32,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="nb">
       <body>
         <script
           type="application/ld+json"
