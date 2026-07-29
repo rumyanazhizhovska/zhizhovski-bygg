@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./Footer.module.css";
 
+const GITHUB_ACCOUNT = "https://github.com/rumyanazhizhovska"
 function Footer() {
   return (
     <footer className={styles.footer}>
@@ -19,7 +20,9 @@ function Footer() {
         </nav>
       </div>
       <div className={styles.bottom}>
-        <p className={styles.left}>Laget med ❤️ av Rumyana Zhizhovska</p>
+        <a href={GITHUB_ACCOUNT} className={`${styles.left} ${styles["github-account"]}`}>
+          Laget med ❤️ av Rumyana Zhizhovska
+        </a>
         <p className={styles.center}>Bygget for varige resultater.</p>
         <p className={styles.right}>© {new Date().getFullYear()} Zhizhovski Bygg</p>
       </div>
