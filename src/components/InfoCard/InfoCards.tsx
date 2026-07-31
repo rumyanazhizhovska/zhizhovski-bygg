@@ -1,7 +1,8 @@
 "use client";
 
 import styles from "./InfoCard.module.css";
-import { Hammer as HammerIcon, CalendarCheck2 as CalendarCheck2Icon, UserStar as UserStarIcon, MessageCircleCheck as MessageCircleCheckIcon, ArrowUpRight as ArrowUpRightIcon } from "lucide-react";
+import { Hammer as HammerIcon, CalendarCheck2 as CalendarCheck2Icon, UserStar as UserStarIcon, MessageCircleCheck as MessageCircleCheckIcon, ArrowUpRight as ArrowUpRightIcon} from "lucide-react";
+import Link from "next/link";
 import InfoCard from "./InfoCard";
 import { useBorderProgress } from "./useBorderProgress"
 import { useRef } from "react";
@@ -24,14 +25,14 @@ export default function InfoCards() {
                 Sikrer ledende resultater gjennom høyeste kvalitetsfokus.
             </InfoCard>
 
-            <InfoCard title="GRATIS og uforpliktende befaring" Icon={MessageCircleCheckIcon}>
-                <div className={styles.title}>
-                    Vi tar imot enhver forspørsel!
-                    <a className={styles.contactIcon} href="/contact">
-                        <ArrowUpRightIcon/>
-                    </a>
-                </div>
-            </InfoCard>
+            <Link href="/contact" className={styles.hoverArrow}>
+                <InfoCard title="GRATIS og uforpliktende befaring" Icon={MessageCircleCheckIcon}>
+                    <div className={styles.title}>
+                        Vi tar imot enhver forspørsel!
+                        <ArrowUpRightIcon className={styles.arrowIcon}/>
+                    </div>
+                </InfoCard>
+            </Link>
       </div>
     )
 }
