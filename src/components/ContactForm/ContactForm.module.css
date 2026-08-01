@@ -1,11 +1,11 @@
 .form {
   display: grid;
   gap: 1.25rem;
+  width: min(100%, 56rem);
   padding: clamp(1.25rem, 3vw, 2rem);
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(41, 75, 101, 0.12);
-  border-radius: 1.25rem;
-  box-shadow: 0 18px 50px rgba(41, 75, 101, 0.08);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-brand) 12%, transparent);
+  box-shadow: 0 18px 50px color-mix(in srgb, var(--color-ink) 8%, transparent);
   backdrop-filter: blur(10px);
 }
 
@@ -16,12 +16,12 @@
 
 .phoneRow {
   display: grid;
-  grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr);
+  grid-template-columns: minmax(4rem, 6rem) minmax(0, 1fr);
   gap: 0.75rem;
 }
 
 .label {
-  color: #294b65;
+  color: var(--color-brand);
   font-size: 0.95rem;
   font-weight: 600;
 }
@@ -30,10 +30,9 @@
 .textarea,
 .select {
   width: 100%;
-  border: 1px solid rgba(41, 75, 101, 0.18);
-  border-radius: 0.85rem;
-  background: #fff;
-  color: #162635;
+  border: 1px solid color-mix(in srgb, var(--color-brand) 18%, transparent);
+  background: var(--color-surface);
+  color: var(--color-ink);
   font: inherit;
   transition:
     border-color 160ms ease,
@@ -73,28 +72,41 @@
 .fileButton {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
   justify-self: start;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid #294b65;
-  border-radius: 0.9rem;
-  color: #294b65;
-  background: #fff;
+  gap: 0.65rem;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid var(--color-brand);
+  color: var(--color-brand);
+  background: color-mix(in srgb, var(--color-surface) 75%, transparent);
   font: inherit;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 600;
-  white-space: nowrap;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 .fileButton:hover {
-  background-color: #f0f0f0;
+  color: var(--color-surface);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-0.12rem);
 }
+
+.fileInput:focus-visible + .fileButton,
+.fileInput:focus + .fileButton {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 0.2rem;
+}
+
 
 .helperText {
   margin: 0;
-  color: #00966E;
+  color: var(--color-accent);
   font-size: 0.92rem;
   line-height: 1.5;
 }
@@ -103,14 +115,13 @@
   display: grid;
   gap: 0.75rem;
   padding: 0.75rem 0.85rem;
-  border: 1px solid rgba(41, 75, 101, 0.12);
-  border-radius: 1rem;
-  background: rgba(98, 158, 116, 0.04);
+  border: 1px solid color-mix(in srgb, var(--color-brand) 12%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 4%, transparent);
 }
 
 .fileSummaryTitle {
   margin: 0;
-  color: #294b65;
+  color: var(--color-brand);
   font-size: 0.95rem;
   font-weight: 600;
 }
@@ -139,7 +150,7 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: #294b65;
+  color: var(--color-brand);
   font: inherit;
   font-weight: 400;
   cursor: pointer;
@@ -153,9 +164,8 @@
   height: 1.75rem;
   padding: 0;
   border: 0;
-  border-radius: 50%;
   background: transparent;
-  color: #294b65;
+  color: var(--color-brand);
   cursor: pointer;
   transition:
     background-color 160ms ease,
@@ -163,12 +173,12 @@
 }
 
 .fileRemove:hover {
-  background: rgba(163, 48, 48, 0.1);
-  color: #a33030;
+  background: color-mix(in srgb, var(--color-bulgarian-red) 10%, transparent);
+  color: var(--color-bulgarian-red);
 }
 
 .fileRemove:focus-visible {
-  outline: 2px solid #294b65;
+  outline: 2px solid var(--color-brand);
   outline-offset: 2px;
 }
 
@@ -178,7 +188,7 @@
 }
 
 .fileLinkViewed {
-  color: #4388bd;
+  color: var(--color-brand);
   font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 0.18em;
@@ -188,10 +198,9 @@
   width: 0.9rem;
   height: 0.9rem;
   flex: 0 0 auto;
-  border-radius: 0.2rem;
   object-fit: cover;
-  border: 1px solid rgba(41, 75, 101, 0.18);
-  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--color-brand) 18%, transparent);
+  background: var(--color-surface);
 }
 
 .previewOverlay {
@@ -201,7 +210,7 @@
   display: grid;
   place-items: center;
   padding: 1rem;
-  background: rgba(8, 17, 27, 0.72);
+  background: color-mix(in srgb, var(--color-ink) 72%, transparent);
 }
 
 .previewDialog {
@@ -211,18 +220,16 @@
   max-height: 90vh;
   padding: 1rem;
   overflow: auto;
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  background: var(--color-surface);
+  box-shadow: 0 24px 80px color-mix(in srgb, var(--color-ink) 28%, transparent);
 }
 
 .previewClose {
   justify-self: end;
   padding: 0.5rem 0.8rem;
   border: 0;
-  border-radius: 0.6rem;
-  background: #f0f0f0;
-  color: #294b65;
+  background: var(--color-surface-alt);
+  color: var(--color-brand);
   font: inherit;
   font-weight: 600;
   cursor: pointer;
@@ -232,13 +239,12 @@
   width: 100%;
   max-height: 70vh;
   object-fit: contain;
-  border-radius: 0.8rem;
-  background: #fff;
+  background: var(--color-surface);
 }
 
 .previewCaption {
   margin: 0;
-  color: #294b65;
+  color: var(--color-brand);
   font-size: 0.92rem;
   word-break: break-word;
 }
@@ -247,8 +253,8 @@
 .textarea:focus,
 .select:focus {
   outline: none;
-  border-color: #00966E;
-  box-shadow: 0 0 0 4px rgba(98, 158, 116, 0.14);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 14%, transparent);
 }
 
 .actions {
@@ -264,37 +270,42 @@
 
 .statusText {
   margin: 0;
-  color: #294b65;
+  color: var(--color-brand);
   font-size: 0.95rem;
   line-height: 1.5;
-}
-
-@media (max-width: 640px) {
-  .phoneRow {
-    grid-template-columns: 1fr;
-  }
 }
 
 .success {
   display: grid;
   gap: 0.75rem;
   padding: clamp(1.5rem, 3vw, 2rem);
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(98, 158, 116, 0.2);
-  border-radius: 1.25rem;
-  box-shadow: 0 18px 50px rgba(41, 75, 101, 0.08);
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 20%, transparent);
+  box-shadow: 0 18px 50px color-mix(in srgb, var(--color-ink) 8%, transparent);
 }
 
 .successTitle {
   margin: 0;
-  color: #294b65;
+  color: var(--color-brand);
   font-size: 1.25rem;
   font-weight: 700;
 }
 
 .successText {
   margin: 0;
-  color: #00966E;
+  color: var(--color-accent);
   line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+  .phoneRow {
+    grid-template-columns: 1fr;
+  }
+
+  .fileButton {
+    margin: 0;
+    padding: 0.85rem 1rem;
+    text-align: center;
+  }
 }
 
