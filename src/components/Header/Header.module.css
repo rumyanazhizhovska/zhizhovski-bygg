@@ -9,7 +9,7 @@
   align-items: center;
   gap: clamp(2rem, 4vw, 5rem);
   padding-inline: max(1.5rem, calc((100vw - var(--page-width)) / 2));
-  background-color: rgba(249, 251, 251, 0.88);
+  background-color: color-mix(in srgb, var(--color-surface-strong) 88%, transparent);
   border-bottom: 1px solid var(--color-line);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -38,7 +38,7 @@
   height: 4.7rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
   .header {
     top: 0;
     height: var(--header-height-mobile);
@@ -55,11 +55,5 @@
 
   .img {
     height: 4rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .logo {
-    transition: none;
   }
 }
