@@ -1,44 +1,164 @@
-const _services = [
+import type { ServiceCategory, ServiceItem } from "@/types/portfolio";
+
+export const SERVICE_CATEGORIES = [
   {
     id: "snekkerarbeid",
     title: "Snekkerarbeid",
     description:
-      "Vi tar på oss alle slags snekkerarbeid, fra små reparasjoner til store prosjekter.",
-    projects: [
+      "Presist snekkerarbeid for oppussing, tilpasning og komplette rom – fra konstruksjon til ferdige detaljer.",
+    services: [
       {
-        title: "Llund 22",
-        image: "/images/snekkerarbeid.jpg",
-        alt: "Moderne snekkerarbeid utført av Zhizhovski Bygg AS",
-        text: "Her har vi utført snekkerarbeid for en moderne enebolig. Vi har fokusert på detaljer og kvalitet i arbeidet vårt.",
-        linkHref: "/projects",
-        linkText: "Se mer om prosjektet",
+        id: "vegger-og-romlosninger",
+        title: "Vegger og romløsninger",
+        description:
+          "Nye lettvegger, åpninger og planløsninger tilpasset boligen.",
       },
       {
-        title: "Mortrensrud allé 5",
-        image: "/images/Mortrensrud.jpg",
-        alt: "Snøring av terrasse og inngangsparti utført av Zhizhovski Bygg AS",
-        text: "Kan snkeres på alle slags terrasser og inngangspartier. Vi har fokusert på detaljer og kvalitet i arbeidet vårt.",
-        linkHref: "/contact",
-        linkText: "Kontakt oss ved interesse",
+        id: "gipsing-og-taksenking",
+        title: "Gipsing og taksenking",
+        description:
+          "Rette flater, skjulte føringer og gjennomførte overganger.",
+      },
+      {
+        id: "dorer-og-vinduer",
+        title: "Dører og vinduer",
+        description:
+          "Nøyaktig montering, utskifting og innvendig ferdigstilling.",
+      },
+      {
+        id: "gulv",
+        title: "Gulv",
+        description:
+          "Legging av laminat og parkett med presise skjøter og avslutninger.",
+      },
+      {
+        id: "listverk",
+        title: "Listverk",
+        description:
+          "Fotlister, karmer og detaljer som gir rommet en helhetlig finish.",
+      },
+      {
+        id: "kjokken",
+        title: "Kjøkken",
+        description: "Montering og tilpasning av kjøkkenløsninger til rommet.",
+      },
+      {
+        id: "garderober-og-skyvedorer",
+        title: "Garderober og skyvedører",
+        description:
+          "Plassbygde og modulbaserte løsninger som utnytter plassen godt.",
+      },
+      {
+        id: "baderomsinnredning",
+        title: "Baderomsinnredning",
+        description:
+          "Sikker montering og tilpasning av innredning på bad og vaskerom.",
       },
     ],
   },
   {
-    id: "håndverkertjenester",
-    title: "Håndverkertjenester",
+    id: "montering-og-handverkertjenester",
+    title: "Montering og håndverkertjenester",
     description:
-      "Vi tilbyr en rekke håndverkertjenester for å gi ditt hjem det perfekte utseendet.",
-    projects: [],
+      "Fleksibel hjelp til montering, utskifting og de detaljene som får hjemmet til å fungere bedre.",
+    services: [
+      {
+        id: "mobler",
+        title: "Møbler",
+        description:
+          "Effektiv montering, tilpasning og trygg plassering av møbler.",
+      },
+      {
+        id: "benkeplater",
+        title: "Benkeplater",
+        description:
+          "Oppmåling, kapping og montering med nøyaktige tilpasninger.",
+      },
+      {
+        id: "hvitevarer",
+        title: "Hvitevarer",
+        description:
+          "Innpassing og montering av integrerte og frittstående hvitevarer.",
+      },
+      {
+        id: "vask-og-blandebatteri",
+        title: "Vask og blandebatteri",
+        description:
+          "Tilpasning og montering koordinert med nødvendige fagområder.",
+      },
+      {
+        id: "ventilasjonsfiltre",
+        title: "Ventilasjonsfiltre",
+        description:
+          "Utskifting og praktisk oppfølging for et velfungerende anlegg.",
+      },
+      {
+        id: "spotter-og-led-belysning",
+        title: "Spotter og LED-belysning",
+        description:
+          "Planlagt plassering og montering, med elektriker når det kreves.",
+      },
+      {
+        id: "diverse-monteringsarbeid",
+        title: "Diverse monteringsarbeid",
+        description:
+          "Praktiske små og store monteringsoppgaver, løst ryddig og effektivt.",
+      },
+    ],
   },
   {
     id: "malerarbeid",
     title: "Malerarbeid",
-    description: "Vi tilbyr profesjonell maling for både interiør og eksteriør.",
-    projects: [],
+    description:
+      "Grundig forarbeid og jevne overflater for et varig, profesjonelt sluttresultat.",
+    services: [
+      {
+        id: "sparkling",
+        title: "Sparkling",
+        description:
+          "Skjøter, skruehull og reparasjoner klargjort for videre behandling.",
+      },
+      {
+        id: "helsparkling",
+        title: "Helsparkling",
+        description:
+          "Slette vegger og tak som gir et rolig og moderne uttrykk.",
+      },
+      {
+        id: "maling",
+        title: "Maling",
+        description:
+          "Innvendig og utvendig maling med jevn dekning og rene kanter.",
+      },
+      {
+        id: "tapetsering",
+        title: "Tapetsering",
+        description:
+          "Nøyaktig oppsetting, mønstertilpasning og fine avslutninger.",
+      },
+    ],
   },
-];
+] as const satisfies readonly ServiceCategory[];
 
-export async function getServices() {
-  // Later can be replaced this with a fetch() to an API or database call.
-  return _services;
+export const SERVICE_COUNT = SERVICE_CATEGORIES.reduce(
+  (total, category) => total + category.services.length,
+  0,
+);
+
+export async function getServices(): Promise<readonly ServiceCategory[]> {
+  // Kan senere erstattes med et API- eller databasekall uten å endre UI-et.
+  return SERVICE_CATEGORIES;
+}
+
+export function getServicesByIds(
+  serviceIds: readonly string[],
+): readonly ServiceItem[] {
+  const requestedIds = new Set(serviceIds);
+  const allServices: ServiceItem[] = [];
+
+  SERVICE_CATEGORIES.forEach((category) => {
+    allServices.push(...category.services);
+  });
+
+  return allServices.filter((service) => requestedIds.has(service.id));
 }
