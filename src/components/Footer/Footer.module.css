@@ -62,7 +62,7 @@
   outline-offset: 0.25rem;
 }
 
-.github-account:hover {
+.githubAccount:hover {
   opacity: 0.7;
 }
 
@@ -78,7 +78,7 @@
   justify-self: right;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .footer {
     width: min(100% - 2rem, 760px);
   }

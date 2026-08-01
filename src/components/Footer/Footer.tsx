@@ -20,7 +20,7 @@ function Footer() {
         </nav>
       </div>
       <div className={styles.bottom}>
-        <a href={GITHUB_ACCOUNT} className={`${styles.left} ${styles["github-account"]}`}>
+        <a href={GITHUB_ACCOUNT} className={`${styles.left} ${styles.githubAccount}`} target="_blank" rel="noopener noreferrer">
           Laget med ❤️ av Rumyana Zhizhovska
         </a>
         <p className={styles.center}>Bygget for varige resultater.</p>
