@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import { SERVICE_CATEGORIES } from "../data/services";
 
 const baseUrl = "https://zhizhovski-bygg.vercel.app";
 
@@ -24,13 +25,46 @@ export const metadata: Metadata = {
     template: "%s | Zhizhovski Bygg",
   },
   description:
-    "Zhizhovski Bygg tilbyr snekkerarbeid, montering, håndverkertjenester og malerarbeid med fokus på kvalitet.",
+    "Zhizhovski Bygg tilbyr snekkerarbeid, montering, håndverkertjenester og malerarbeid med fokus på kvalitet, lokalisert i Oslo-områder.",
+  keywords: [
+    "construction",
+    "bygg",
+    "Oslo",
+    "renovation",
+    "snekker",
+    "montering",
+    "håndverkertjenester",
+    "maling",
+    "Zhizhovski Bygg",
+    "Oslo håndverk",
+    "Oslo snekker",
+    "Oslo montering",
+    "Oslo maler",
+    "Oslo byggtjenester",
+    "Oslo renovering",
+    "Oslo områder",
+    "Bygg Oslo",
+    ...SERVICE_CATEGORIES.flatMap((category) => [
+      category.title,
+      ...category.services.map((service) => service.title),
+    ]),
+
+  ],
   openGraph: {
     type: "website",
     locale: "nb_NO",
     siteName: "Zhizhovski Bygg",
     title: "Zhizhovski Bygg",
     description: "Profesjonelt håndverk innen snekring, montering og maling.",
+    url: baseUrl,
+    images: [
+      {
+        url: `${baseUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Zhizhovski Bygg",
+      },
+    ],
   },
   verification: {
     google: "1ZNr5tlIQ9sLHmUvQGLKoQR7ke7AsxjdtjS7mtSTook",

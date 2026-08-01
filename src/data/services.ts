@@ -146,7 +146,7 @@ export const SERVICE_COUNT = SERVICE_CATEGORIES.reduce(
 );
 
 export async function getServices(): Promise<readonly ServiceCategory[]> {
-  // Kan senere erstattes med et API- eller databasekall uten å endre UI-et.
+  // Kan senere erstatte det med et API- eller databasekall uten å endre UI-et.
   return SERVICE_CATEGORIES;
 }
 
