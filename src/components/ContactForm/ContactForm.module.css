@@ -1,7 +1,7 @@
 .form {
   display: grid;
   gap: 1.25rem;
-  width: min(100%, 56rem);
+  width: min(100%, 72rem);
   padding: clamp(1.25rem, 3vw, 2rem);
   background: color-mix(in srgb, var(--color-surface) 88%, transparent);
   border: 1px solid color-mix(in srgb, var(--color-brand) 12%, transparent);
@@ -165,7 +165,7 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--color-brand);
+  color: #294b65;
   cursor: pointer;
   transition:
     background-color 160ms ease,
