@@ -3,41 +3,45 @@
 import Link from "next/link";
 import styles from "./Button.module.css";
 import { ButtonProps } from "./types";
-import { PAGES as pages } from "../../constants/pages";
 
 const isInternalLink = (href: string) => {
-    return pages.some((page) => href.includes(page));
+  return href.startsWith("/") || href.startsWith("#");
 };
+
 export default function Button({
-    type = "button",
-    children,
-    buttonStyle = "",
-    className = "",
-    href,
-    ...rest
+  type = "button",
+  children,
+  buttonStyle = "",
+  className = "",
+  href,
+  ...rest
 }: ButtonProps) {
-    const classes = [styles.button, buttonStyle ? styles[buttonStyle] : "", className]
-        .filter(Boolean)
-        .join(" ");
+  const classes = [
+    styles.button,
+    buttonStyle ? styles[buttonStyle] : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
-    if (href) {
-        if (isInternalLink(href)) {
-            return (
-                <Link href={href} className={classes} {...rest}>
-                    {children}
-                </Link>
-            );
-        }
-        return (
-            <a href={href} className={classes} {...rest}>
-                {children}
-            </a>
-        );
+  if (href) {
+    if (isInternalLink(href)) {
+      return (
+        <Link href={href} className={classes} {...rest}>
+          {children}
+        </Link>
+      );
     }
-
     return (
-        <button type={type} className={classes} {...rest}>
-            {children}
-        </button>
+      <a href={href} className={classes} {...rest}>
+        {children}
+      </a>
     );
+  }
+
+  return (
+    <button type={type} className={classes} {...rest}>
+      {children}
+    </button>
+  );
 }
