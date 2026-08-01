@@ -7,7 +7,8 @@
   justify-content: center;
   overflow-x: hidden;
   padding-top: calc(var(--header-height) + 2rem);
-  padding-bottom: 3rem;
+  padding: 2rem;
+  padding-bottom: 1rem;
 }
 
 .container {
@@ -16,7 +17,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
+  margin: 2rem;
 }
 
 .header {
@@ -27,14 +29,14 @@
 
 .header h1,
 .header h2 {
-  color: #294b65;
+  color: var(--color-brand);
   font-size: clamp(1.6rem, 3.75vw, 3rem);
   font-weight: 600;
   line-height: 1;
 }
 
 .header p {
-  color: #00966e;
+  color: var(--color-accent);
   font-size: 1.05rem;
   line-height: 1.8;
 }
@@ -48,23 +50,14 @@
 }
 
 /* Components */
-.card {
-  padding: 2em;
-}
-
-.code {
-  font-weight: 700;
-  font-family: var(--font-mono);
-}
-
 .link {
   font-weight: 500;
-  color: #646cff;
+  color: var(--color-brand);
   text-decoration: inherit;
 }
 
 .link:hover {
-  color: #535bf2;
+  color: var(--color-accent);
 }
 
 @media (max-width: 800px) {
