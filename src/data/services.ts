@@ -5,7 +5,7 @@ export const SERVICE_CATEGORIES = [
     id: "snekkerarbeid",
     title: "Snekkerarbeid",
     description:
-      "Presist snekkerarbeid for oppussing, tilpasning og komplette rom – fra konstruksjon til ferdige detaljer.",
+      "Presist snekkerarbeid for oppussing, tilpasning og komplette rom - fra konstruksjon til ferdige detaljer.",
     services: [
       {
         id: "vegger-og-romlosninger",
