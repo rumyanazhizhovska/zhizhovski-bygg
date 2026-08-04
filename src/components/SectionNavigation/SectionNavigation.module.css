@@ -1,22 +1,17 @@
 .sidebar {
   position: sticky;
-  top: 7rem;
-
+  top: calc(var(--header-height) + 2rem);
   align-self: start;
-
-  max-height: calc(100vh - 9rem);
+  max-height: calc(100vh - var(--header-height) - 4rem);
   overflow-y: auto;
-
-  border-left: 1px solid #dce3e7;
+  border-left: 1px solid var(--color-line);
 }
 
 .list {
   display: flex;
   flex-direction: column;
-
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
@@ -27,91 +22,74 @@
 
 .link {
   position: relative;
-
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-
-  padding: 1rem 2rem;
-
-  color: #a9b8c1;
+  gap: 0.6rem;
+  padding: 1rem 1.5rem;
+  color: var(--color-muted);
   text-decoration: none;
-
   transition:
     color 160ms ease,
     opacity 160ms ease;
 }
 
-/*
- * Den vertikale aktive streken.
- */
 .link::before {
   content: "";
-
   position: absolute;
   top: 0;
   bottom: 0;
   left: -2px;
-
-  width: 4px;
-
+  width: 3px;
   background-color: transparent;
-
   transition: background-color 160ms ease;
 }
 
 .title {
-  font-size: clamp(1.2rem, 1.5vw, 1.75rem);
-  font-weight: 550;
-  font-stretch: condensed;
+  color: inherit;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 650;
   line-height: 1.2;
 }
 
 .description {
   max-width: 18rem;
-
-  font-size: clamp(1rem, 1.1vw, 1.25rem);
-  line-height: 1.65;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
 }
 
-
 .active {
-  color: #00966E;
+  color: var(--color-accent);
 }
 
 .active::before {
-  background-color: #00966E;
+  background-color: var(--color-accent);
 }
 
 .active .description {
-  color: #6f8798;
+  color: var(--color-body);
 }
 
 .link:hover {
-  color: #00966E;
+  color: var(--color-accent);
 }
 
 .link:focus-visible {
-  outline: 3px solid #8db2ca;
+  outline: 3px solid var(--color-focus);
   outline-offset: -3px;
 }
 
-
-@media (max-width: 900px) {
+@media (max-width: 800px) {
   .sidebar {
     position: sticky;
     z-index: 20;
-    top: 4.5rem;
-
+    top: var(--header-height-mobile);
     max-height: none;
-
     overflow-x: auto;
     overflow-y: hidden;
-
-    background-color: rgba(255, 255, 255, 0.96);
-    border-bottom: 1px solid #dce3e7;
+    background-color: color-mix(in srgb, var(--color-surface-strong) 96%, transparent);
+    border-bottom: 1px solid var(--color-line);
     border-left: 0;
-
     backdrop-filter: blur(12px);
   }
 

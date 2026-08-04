@@ -3,3 +3,7 @@ export type SectionNavigationItem = {
     title: string;
     description: string;
 }
+
+export type SectionNavigationProps = {
+  sections: SectionNavigationItem[];
+};
