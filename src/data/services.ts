@@ -145,9 +145,9 @@ export const SERVICE_COUNT = SERVICE_CATEGORIES.reduce(
   0,
 );
 
-export async function getServices(): Promise<readonly ServiceCategory[]> {
+export async function getServices(): Promise<ServiceCategory[]> {
   // Kan senere erstatte det med et API- eller databasekall uten å endre UI-et.
-  return SERVICE_CATEGORIES;
+  return [...SERVICE_CATEGORIES];
 }
 
 export function getServicesByIds(
