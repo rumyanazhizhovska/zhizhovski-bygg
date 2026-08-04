@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { PAGES as pages } from "../constants/pages";
+import { PAGES as pages } from "@/constants/pages";
 
 const baseUrl = "https://zhizhovski-bygg.vercel.app";
 
