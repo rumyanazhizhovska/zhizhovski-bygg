@@ -1,5 +1,12 @@
 import ContactForm from "@/components/ContactForm/ContactForm";
-import styles from "../../page.module.css";
+import styles from "./page.module.css";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kontakt oss",
+  description: "Her kan du kontakte oss med spørsmål eller for å få gratis befaring fra Zhizhovski Bygg.",
+};
+
 
 export default function Contact() {
   return (
