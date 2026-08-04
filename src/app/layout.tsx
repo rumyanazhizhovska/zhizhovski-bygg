@@ -78,18 +78,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nb">
-      <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <>
+      <html lang="nb">
+        <body>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(organizationSchema),
+            }}
+          />
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </html>
+      <Analytics />
+    </>
   );
 }
