@@ -1,5 +1,5 @@
 import InfoCards from "@/components/InfoCard/InfoCards";
-import styles from "../page.module.css";
+import styles from "./page.module.css";
 import GoogleReviewsLink from "@/components/Reviews/GoogleReviewsLink";
 
 export default function Home() {
