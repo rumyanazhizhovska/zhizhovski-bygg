@@ -11,16 +11,17 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <main className={styles.main}>
-      <div className={styles.container}>
+      <section className={styles.container} aria-labelledby="contact-title">
         <div className={styles.header}>
-          <h1>Kontaktskjema</h1>
-          <p>
+          <p className={styles.eyebrow}>Videre kontakt / gratis befaring</p>
+          <h1 id="contact-title">Kontaktskjema</h1>
+          <p className={styles.intro}>
             Send inn oppdraget ditt, så tar vi en prat om omfang, tid og
             løsning.
           </p>
         </div>
-        <ContactForm />
-      </div>
+      </section>
+      <ContactForm />
     </main>
   );
 }
