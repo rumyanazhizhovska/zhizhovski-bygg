@@ -13,7 +13,7 @@ export default function ServicesPage() {
   return (
     <main className={styles.main}>
       <section className={styles.container} aria-labelledby="services-title">
-        <div className={styles.containerCopy}>
+        <div className={styles.header}>
           <p className={styles.eyebrow}>Tjenester / fagområder</p>
           <h1 id="services-title">Riktig håndverk, punkt for punkt.</h1>
           <p className={styles.intro}>

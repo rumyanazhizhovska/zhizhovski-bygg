@@ -46,7 +46,7 @@
   z-index: 0;
 }
 
-.containerCopy {
+.header {
   position: relative;
   z-index: 1;
   max-width: 58rem;
