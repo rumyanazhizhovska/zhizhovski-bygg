@@ -1,0 +1,129 @@
+.singleMedia,
+.comparison,
+.placeholder,
+.comparisonPlaceholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-surface-alt);
+}
+
+.singleMedia {
+  background: var(--color-surface-alt);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.comparisonPanel {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.comparisonPanel + .comparisonPanel {
+  border-left: 2px solid var(--color-surface);
+}
+
+.mediaLabel,
+.placeholderLabel {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1;
+  padding: 0.35rem 0.55rem;
+  color: var(--color-surface);
+  background: color-mix(in srgb, var(--color-ink) 82%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-surface) 20%, transparent);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.placeholder {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.65rem;
+  color: var(--color-muted);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 56%),
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px),
+    var(--color-surface-alt);
+  background-size:
+    auto,
+    1.75rem 1.75rem,
+    1.75rem 1.75rem,
+    auto;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cornerMark {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 1rem;
+  height: 1rem;
+  border-top: 1px solid var(--color-bulgarian-red);
+  border-right: 1px solid var(--color-accent);
+}
+
+.comparisonPlaceholder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--color-surface-alt);
+}
+
+.comparisonPlaceholder > div {
+  position: relative;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--color-brand) 13%, transparent), transparent 65%),
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size:
+    auto,
+    1.75rem 1.75rem,
+    1.75rem 1.75rem;
+}
+
+.comparisonPlaceholder > div + div {
+  border-left: 2px solid var(--color-surface);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--color-accent) 15%, transparent), transparent 65%),
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size:
+    auto,
+    1.75rem 1.75rem,
+    1.75rem 1.75rem;
+}
+
+.placeholderLabel {
+  color: var(--color-ink);
+  background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+  border-color: var(--color-line);
+}
+
+.comparisonNote {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.4rem 0.55rem;
+  color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
