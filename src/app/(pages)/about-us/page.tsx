@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Om oss",
   description: "Læær om mer om hvem vi er og hva vi gjør hos Zhizhovski Bygg.",
+    alternates: {
+        canonical: "/about-us",
+    },
 };
 
 

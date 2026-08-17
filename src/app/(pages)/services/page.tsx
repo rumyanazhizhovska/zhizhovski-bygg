@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Tjenester",
   description:
     "Se tjenester innen snekkerarbeid, montering, håndverkertjenester og malerarbeid.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesPage() {

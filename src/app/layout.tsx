@@ -21,6 +21,9 @@ const organizationSchema = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Zhizhovski Bygg",
     template: "%s | Zhizhovski Bygg",
@@ -69,6 +72,17 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "1ZNr5tlIQ9sLHmUvQGLKoQR7ke7AsxjdtjS7mtSTook",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 

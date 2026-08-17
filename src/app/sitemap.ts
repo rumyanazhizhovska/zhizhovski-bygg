@@ -3,12 +3,22 @@ import { PAGES as pages } from "@/constants/pages";
 
 const baseUrl = "https://zhizhovski-bygg.vercel.app";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+function normalizePath(path: string): string {
+    if (!path || path === "/") {
+        return "/";
+    }
 
-    return pages.map((page) => ({
+    const withLeadingSlash = path.startsWith("/") ? path : `/${path}`;
+    return withLeadingSlash.replace(/\/+$/, "");
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+    const uniquePaths = Array.from(new Set(pages.map(normalizePath)));
+
+    return uniquePaths.map((page) => ({
         url: `${baseUrl}${page}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
-        priority: page === "" ? 1 : 0.8,
+        priority: page === "/" ? 1 : 0.8,
     }));
 }
