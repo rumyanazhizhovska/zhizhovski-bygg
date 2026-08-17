@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 
 export default function Projects() {
   return (
-    <main className={styles.page}>
-      <section className={styles.hero} aria-labelledby="projects-title">
-        <div className={styles.heroCopy}>
+    <main className={styles.main}>
+      <section className={styles.container} aria-labelledby="projects-title">
+        <div className={styles.header}>
           <p className={styles.eyebrow}>Prosjektarkiv / Zhizhovski Bygg</p>
           <h1 id="projects-title">
             Utført arbeid.
@@ -32,7 +32,7 @@ export default function Projects() {
             bla gjennom alt.
           </p>
 
-          <div className={styles.heroActions}>
+          <div className={styles.headerActions}>
             <Button href="#project-catalog" buttonStyle="primary">
               Utforsk prosjektområdene
               <ArrowDown size={18} aria-hidden="true" />
