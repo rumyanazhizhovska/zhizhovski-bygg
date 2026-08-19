@@ -1,62 +1,24 @@
-import Image from "next/image";
 import { ImagePlus } from "lucide-react";
-import type { ProjectMedia as ProjectMediaType } from "@/types/portfolio";
+import { getProjectMediaByIds } from "@/data/projectMediaCollection";
+import type { ProjectMediaCollectionId } from "@/types/portfolio";
+import ProjectMediaViewer from "./ProjectMediaViewer";
 import styles from "./ProjectMedia.module.css";
 
 type ProjectMediaProps = {
-  media?: ProjectMediaType;
+  media?: readonly ProjectMediaCollectionId[];
   title: string;
   placeholderVariant?: "single" | "before-after";
 };
 
-export default function ProjectMedia({
+export default async function ProjectMedia({
   media,
   title,
   placeholderVariant = "single",
 }: ProjectMediaProps) {
-  if (media?.type === "single") {
-    return (
-      <div className={styles.singleMedia}>
-        <Image
-          src={media.image.src}
-          alt={media.image.alt}
-          fill
-          className={styles.image}
-          sizes="(max-width: 720px) 100vw, (max-width: 1200px) 50vw, 32vw"
-        />
-      </div>
-    );
-  }
+  const projectMedia = media ? await getProjectMediaByIds(media) : [];
 
-  if (media?.type === "before-after") {
-    return (
-      <div
-        className={styles.comparison}
-        role="group"
-        aria-label={`Før- og etterbilder for ${title}`}
-      >
-        <figure className={styles.comparisonPanel}>
-          <Image
-            src={media.before.src}
-            alt={media.before.alt}
-            fill
-            className={styles.image}
-            sizes="(max-width: 720px) 50vw, 18vw"
-          />
-          <figcaption className={styles.mediaLabel}>Før</figcaption>
-        </figure>
-        <figure className={styles.comparisonPanel}>
-          <Image
-            src={media.after.src}
-            alt={media.after.alt}
-            fill
-            className={styles.image}
-            sizes="(max-width: 720px) 50vw, 18vw"
-          />
-          <figcaption className={styles.mediaLabel}>Etter</figcaption>
-        </figure>
-      </div>
-    );
+  if (projectMedia.length) {
+    return <ProjectMediaViewer media={projectMedia} title={title} />;
   }
 
   if (placeholderVariant === "before-after") {
@@ -85,7 +47,7 @@ export default function ProjectMedia({
     >
       <span className={styles.cornerMark} aria-hidden="true" />
       <ImagePlus size={24} strokeWidth={1.5} aria-hidden="true" />
-      <span>Bilder legges inn her</span>
+      <span>Bilder kommer</span>
     </div>
   );
 }

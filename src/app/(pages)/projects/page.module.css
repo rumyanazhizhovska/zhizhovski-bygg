@@ -15,9 +15,16 @@
   grid-template-columns: minmax(0, 1.25fr) minmax(19rem, 0.75fr);
   gap: clamp(1.5rem, 2vw, 4.5rem);
   align-items: end;
-  min-height: min(54rem, 100svh);
-  padding-block: calc(var(--header-height) + clamp(1.5rem, 2vw, 4.5rem))
-    12rem;
+  min-height: auto;
+  padding-block: calc(var(--header-height) + clamp(1.5rem, 2vw, 4.5rem)) 2rem;
+}
+
+.headerContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .header::before {
@@ -50,7 +57,7 @@
 }
 
 .eyebrow {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.25rem;
   color: var(--color-accent);
   font-size: 0.7rem;
   font-weight: 750;
@@ -92,7 +99,6 @@
   padding: clamp(1.25rem, 2.5vw, 2rem);
   background: color-mix(in srgb, var(--color-surface) 86%, transparent);
   border: 1px solid var(--color-line);
-  box-shadow: 0 24px 70px color-mix(in srgb, var(--color-ink) 8%, transparent);
   backdrop-filter: blur(16px);
 }
 
@@ -117,29 +123,13 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  padding-bottom: 1rem;
   color: var(--color-muted);
   border-bottom: 1px solid var(--color-line);
+  padding-bottom: 0.85rem;
   font-size: 0.66rem;
   font-weight: 750;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-}
-
-.liveStatus {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--color-accent);
-}
-
-.liveStatus::before {
-  content: "";
-  width: 0.45rem;
-  height: 0.45rem;
-  background: var(--color-accent);
-  border-radius: 50%;
-  box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--color-accent) 10%, transparent);
 }
 
 .systemCard dl {
@@ -178,35 +168,6 @@
   padding-block: clamp(7rem, 12vw, 12rem);
   border-top: 1px solid var(--color-line);
   scroll-margin-top: var(--header-height);
-}
-
-.catalogIntro {
-  display: grid;
-  grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
-  gap: clamp(3rem, 7vw, 8rem);
-  margin-bottom: clamp(7rem, 11vw, 11rem);
-}
-
-.catalogIntro .eyebrow {
-  padding-top: 0.7rem;
-}
-
-.catalogIntro h2 {
-  max-width: 13ch;
-  color: var(--color-ink);
-  font-size: clamp(2.6rem, 5vw, 5.25rem);
-  font-weight: 620;
-  letter-spacing: -0.055em;
-  line-height: 0.95;
-}
-
-.catalogIntro > p:last-child {
-  grid-column: 2;
-  max-width: 46rem;
-  margin-top: -1rem;
-  color: var(--color-body);
-  font-size: 1rem;
-  line-height: 1.75;
 }
 
 .cta {
@@ -259,18 +220,12 @@
     padding-top: calc(var(--header-height-mobile) + 4.5rem);
   }
 
+  .headerContent {
+    width: 100%;
+  }
+
   .systemCard {
     width: min(100%, 34rem);
-  }
-
-  .catalogIntro {
-    grid-template-columns: 1fr;
-    margin-bottom: 6rem;
-  }
-
-  .catalogIntro > p:last-child {
-    grid-column: 1;
-    margin-top: 0;
   }
 
   .cta {

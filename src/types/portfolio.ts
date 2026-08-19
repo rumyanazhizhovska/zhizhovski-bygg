@@ -16,16 +16,19 @@ export type ProjectImage = {
   alt: string;
 };
 
-export type ProjectMedia =
-  | {
-      type: "single";
-      image: ProjectImage;
-    }
-  | {
-      type: "before-after";
-      before: ProjectImage;
-      after: ProjectImage;
-    };
+export type ProjectMediaCollection =
+  {
+    id: string;
+    type: "single";
+    media: readonly ProjectImage[];
+  } | {
+    id: string;
+    type: "before-after";
+    before: readonly ProjectImage[];
+    after: readonly ProjectImage[];
+  };
+
+export type ProjectMediaCollectionId = ProjectMediaCollection["id"];
 
 export type Project = {
   id: string;
@@ -42,7 +45,6 @@ export type Project = {
    */
   serviceIds: readonly ServiceItem["id"][];
   location?: string;
-  year?: string;
-  tags?: readonly string[];
-  media?: ProjectMedia;
+  period?: string;
+  media?: readonly ProjectMediaCollectionId[];
 };
