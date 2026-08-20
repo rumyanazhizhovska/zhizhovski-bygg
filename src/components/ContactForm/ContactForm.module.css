@@ -166,7 +166,7 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: #294b65;
+  color: var(--color-brand);
   cursor: pointer;
   transition:
     background-color 160ms ease,

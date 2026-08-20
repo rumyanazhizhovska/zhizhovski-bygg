@@ -1,3 +1,4 @@
+import { ArrowDown } from "lucide-react";
 import Button from "../Button/Button";
 
 
@@ -8,9 +9,10 @@ export default function GoogleReviewsLink() {
       href={GOOGLE_MAPS_URL}
       target="_blank"
       rel="noopener noreferrer"
-      buttonStyle="secondary"
+      buttonStyle="primary"
     >
       Google-anmeldelser
+      <ArrowDown size={18} aria-hidden="true" />  
     </Button>
   );
 }

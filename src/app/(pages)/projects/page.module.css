@@ -16,7 +16,7 @@
   gap: clamp(1.5rem, 2vw, 4.5rem);
   align-items: end;
   min-height: auto;
-  padding-block: calc(var(--header-height) + clamp(1.5rem, 2vw, 4.5rem)) 2rem;
+  padding-block: var(--header-height-space);
 }
 
 .headerContent {
@@ -207,17 +207,27 @@
   border-color: var(--color-surface);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
+  .main {
+    width: 100%;
+    padding-top: var(--header-height-space-mobile);
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    margin-bottom: 5rem;
+  }
+
   .header,
   .catalogSection,
   .cta {
-    width: min(100% - 2rem, 760px);
+    width: 100%;
   }
 
   .header {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding-top: calc(var(--header-height-mobile) + 4.5rem);
+    padding-top: var(--header-height-space-mobile);
   }
 
   .headerContent {

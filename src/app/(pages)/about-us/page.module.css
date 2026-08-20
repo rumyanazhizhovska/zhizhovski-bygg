@@ -6,17 +6,17 @@
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
-  padding-top: calc(var(--header-height) + 2rem);
+  padding-top: var(--header-height-space);
   padding: 2rem;
   padding-bottom: 1rem;
 }
 
 .container {
-  width: min(100%, 56rem);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin: 2rem;
+  margin: 0;
 }

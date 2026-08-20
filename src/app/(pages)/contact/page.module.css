@@ -1,7 +1,7 @@
 .main {
   width: min(100% - 4rem, var(--page-width));
   margin-inline: auto;
-  padding-block: calc(var(--header-height) + clamp(1rem, 2vw, 2rem)) 8rem;
+  padding-block: var(--header-height-space);
 }
 
 .container {
@@ -100,8 +100,8 @@
 
 @media (max-width: 800px) {
   .main {
-    width: min(100% - 2rem, 760px);
-    padding-top: calc(var(--header-height-mobile) + 4rem);
+    width: 100%;
+    padding-top: var(--header-height-space-mobile);
   }
 
   .container {
