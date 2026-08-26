@@ -2,7 +2,7 @@ import type { ProjectMediaCollection } from "@/types/portfolio";
 
 export const PROJECT_MEDIA: readonly ProjectMediaCollection[] = [
     {
-        id: "erich-mogensons-vei-26",
+        id: "erich-mogensons-vei",
         type: "before-after",
         before: [
             {
@@ -82,6 +82,41 @@ export const PROJECT_MEDIA: readonly ProjectMediaCollection[] = [
             }
         ],
     },
+
+    {
+        id: "sørkedalsveien",
+        type: "single",
+        media: [
+            {
+                src: "/images/sørkedalsveien/before/before-1.jpeg",
+                alt: "Before 1",
+            },
+            {
+                src: "/images/sørkedalsveien/before/before-2.jpeg",
+                alt: "Before 2",
+            },
+            {
+                src: "/images/sørkedalsveien/before/before-3.jpeg",
+                alt: "Before 3",
+            },
+            {
+                src: "/images/sørkedalsveien/before/before-4.jpeg",
+                alt: "Before 4",
+            },
+            {
+                src: "/images/sørkedalsveien/before/before-5.jpeg",
+                alt: "Before 5",
+            },
+            {
+                src: "/images/sørkedalsveien/before/before-6.jpeg",
+                alt: "Before 6",
+            },
+            {
+                src: "/images/sørkedalsveien/before/before-7.jpeg",
+                alt: "Before 7",
+            }
+        ]
+    }
 ];
 
 function resolveProjectMediaByIds(ids: readonly string[]) {

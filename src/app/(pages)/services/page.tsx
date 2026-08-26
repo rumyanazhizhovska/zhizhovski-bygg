@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import styles from "./page.module.css";
 import ServicesOverview from "@/components/Services/ServicesOverview";
 import { SERVICE_CATEGORIES, SERVICE_COUNT } from "@/data/services";
+import { PROJECTS } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Tjenester",
@@ -21,7 +22,7 @@ export default function ServicesPage() {
           <h1 id="services-title">Riktig håndverk, punkt for punkt.</h1>
           <p className={styles.intro}>
             Utforsk det vi kan hjelpe deg med. Hvert tjenestepunkt leder direkte
-            til relevante prosjekter og er klart for å fylles med nye arbeider.
+            til relevante prosjekter og er klart for å fylles med nye.
           </p>
         </div>
 
@@ -35,8 +36,8 @@ export default function ServicesPage() {
             <dd>{String(SERVICE_COUNT).padStart(2, "0")}</dd>
           </div>
           <div>
-            <dt>Prosjektbase</dt>
-            <dd>01</dd>
+            <dt>Prosjekter</dt>
+            <dd>{String(PROJECTS.length).padStart(2, "0")}</dd>
           </div>
         </dl>
       </section>

@@ -13,7 +13,7 @@ const MINIMUM_PROJECT_SLOTS = 2;
 export default async function ProjectGallery() {
   const categories = await getServices();
   const navigationSections: SectionNavigationItem[] = categories.map(
-    ({ id, title, description }) => ({ id, title, description }),
+  ({ id, title, description }) => ({ id, title, description }),
   );
 
   return (
@@ -47,7 +47,7 @@ export default async function ProjectGallery() {
                 {categoryProjects.length > 0 ? (
                   <div className={styles.registeredProjects}>
                     <div className={styles.blockHeader}>
-                      <p>Fra prosjektbasen</p>
+                      <p>Pågående prosjekter</p>
                       <span>{categoryProjects.length} registrert</span>
                     </div>
                     <div className={styles.projectGrid}>

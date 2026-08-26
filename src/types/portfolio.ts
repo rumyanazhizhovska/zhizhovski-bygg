@@ -38,7 +38,7 @@ export type Project = {
    * Valgfritt område for prosjekter som skal fremheves før tjenestelistene.
    * Dette begrenser ikke hvilke tjenester prosjektet kan knyttes til.
    */
-  featuredCategoryId?: ServiceCategory["id"];
+  ongoingCategoryId?: ServiceCategory["id"];
   /**
    * Ett prosjekt kan knyttes til så mange tjenestepunkter som nødvendig,
    * også når punktene ligger i forskjellige hovedområder.

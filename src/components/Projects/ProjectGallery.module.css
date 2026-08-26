@@ -60,6 +60,12 @@
   line-height: 1.75;
 }
 
+.categoryTitle {
+  display: flex;
+  align-items: center;
+   gap: 0.75rem;
+}
+
 .registeredProjects {
   margin-bottom: clamp(5rem, 8vw, 8rem);
   padding: clamp(1.25rem, 3vw, 2rem);

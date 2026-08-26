@@ -41,7 +41,15 @@ export default function ProjectCard({
           </span>
         </div>
 
-        <h4 className={styles.title}>{title}</h4>
+        <div className={styles.titleRow}>
+          <h4 className={styles.title}>{title}</h4>
+          {project?.ongoingCategoryId ? (
+            <span className={styles.ongoingBadge} aria-hidden>
+              <span className={styles.ongoingDot} />
+              Pågående
+            </span>
+          ) : null}
+        </div>
         <p className={styles.summary}>
           {project?.summary ??
             `Prosjektbeskrivelse for prosjekter innenfor ${serviceTitle?.toLowerCase() ?? "tjenesten"}.`}

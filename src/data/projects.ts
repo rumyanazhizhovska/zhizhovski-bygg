@@ -7,24 +7,26 @@ import { SERVICE_CATEGORIES } from "@/data/services";
  * prosjekter via `media`.
  */
 export const PROJECTS: readonly Project[] = [
-  {
-    id: "erich-mogensons-vei-26",
-    title: "Erich Mogensøns vei 26",
+    {
+    id: "sørkedalsveien",
+    title: "Sørkedalsveien",
     summary:
-      "Soveromsrenovering med fokus på gulv- og veggoppgradering, gjennom isolasjon og gipsing.",
-    featuredCategoryId: "snekkerarbeid",
-    serviceIds: ["vegger-og-romlosninger", "gipsing-og-taksenking", "gulv", "helsparkling", "maling"],
-    location: "Erich Mogensøns vei 26, Oslo",
-    period: "Aug, 2022",
-    media: ["erich-mogensons-vei-26"],
+      "Maling av vegger, tak, gerikter, dører, dør- og vinduskarmer. Nye gulv og gulvlister. Riving nav kjøkken, bod og lettvegg. Ferdigstille overgangene ved rivende deler.",
+    ongoingCategoryId: "snekkerarbeid",
+    serviceIds: ["gulv", "vegger-og-romlosninger", "maling", "listverk"],
+    location: "Sørkedalsveien, Oslo",
+    period: "Aug, 2026",
+    media: ["sørkedalsveien"],
   },
   {
-    id: "mortrensrud-alle-5",
-    title: "Mortrensrud allé 5",
+    id: "erich-mogensons-vei",
+    title: "Erich Mogensøns vei ",
     summary:
-      "Arbeid på terrasse og inngangsparti, med fokus på varige løsninger og et helhetlig uttrykk.",
-    featuredCategoryId: "snekkerarbeid",
-    serviceIds: [],
+      "Soveromsrenovering med fokus på gulv- og veggoppgradering, gjennom isolasjon og gipsing.",
+    serviceIds: ["vegger-og-romlosninger", "gipsing-og-taksenking", "gulv", "helsparkling", "maling"],
+    location: "Erich Mogensøns vei, Oslo",
+    period: "Aug, 2022",
+    media: ["erich-mogensons-vei"],
   },
 ];
 
@@ -51,7 +53,7 @@ PROJECTS.forEach((project) => {
 
 function resolveFeaturedProjectsForCategory(categoryId: string) {
   return PROJECTS.filter(
-    (project) => project.featuredCategoryId === categoryId,
+    (project) => project.ongoingCategoryId === categoryId,
   );
 }
 
